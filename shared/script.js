@@ -601,7 +601,7 @@ function renderFeatures() {
       const bullets = item.bullets[state.lang].map((entry) => `<li>${entry}</li>`).join("");
       const backMedia =
         index === 0
-          ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="./assets/bilder/IMG_4580.JPG" alt="${
+          ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="./assets/bilder/optimized/IMG_4580.jpg" alt="${
               state.lang === "de" ? "Schneller Auf- und Abbau" : "Fast setup and teardown"
             }" loading="lazy" /></div>`
           : index === 1
@@ -609,19 +609,19 @@ function renderFeatures() {
                 state.lang === "de" ? "Sicherer Transport" : "Safe transport"
               }" loading="lazy" /></div>`
           : index === 2
-            ? `<div class="flip-back-media"><img class="flip-back-image image-zoom-vandal" src="./assets/bilder/Product_Reshoot___platziere_diese_metallbox_auf_einer_kirmes_vor_einer_wilden_maus_achterbahn_bei_na (1).png" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image image-zoom-vandal" src="./assets/bilder/optimized/Product_Reshoot___platziere_diese_metallbox_auf_einer_kirmes_vor_einer_wilden_maus_achterbahn_bei_na (1).jpg" alt="${
                 state.lang === "de" ? "Vandalismus-Schutz" : "Vandal protection"
               }" loading="lazy" /></div>`
           : index === 3
-            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/Product_Reshoot___edit_the_image__so_that_it_is_in_rains_hard.png" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/optimized/Product_Reshoot___edit_the_image__so_that_it_is_in_rains_hard.jpg" alt="${
                 state.lang === "de" ? "Wetterfest und zuverlässig" : "Weatherproof and reliable"
               }" loading="lazy" /></div>`
           : index === 4
-            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/Product_Reshoot___can_you_place_this_camera_system_into_a_box_inside_of_a_trailer (1).png" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/optimized/Product_Reshoot___can_you_place_this_camera_system_into_a_box_inside_of_a_trailer (1).jpg" alt="${
                 state.lang === "de" ? "Service und Support" : "Service and support"
               }" loading="lazy" /></div>`
           : index === 5
-            ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="./assets/bilder/IMG_4595.JPG" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="./assets/bilder/optimized/IMG_4595.jpg" alt="${
                 state.lang === "de" ? "Einfach integrierbar" : "Easy integration"
               }" loading="lazy" /></div>`
           : `<div class="placeholder" style="min-height:94px;">${
@@ -701,9 +701,9 @@ function renderSales() {
   if (!refs.salesGrid || !refs.flowGrid) return;
   const content = getContent();
   const salesImages = [
-    "./assets/bilder/Expand___16_9.png",
-    "./assets/bilder/hergis2.jpg",
-    "./assets/bilder/image.png",
+    "./assets/bilder/optimized/Expand___16_9.jpg",
+    "./assets/bilder/optimized/hergis2.jpg",
+    "./assets/bilder/optimized/image.jpg",
   ];
   refs.salesGrid.innerHTML = content.sales
     .map((item, index) => {
@@ -863,6 +863,20 @@ function bindMobileMenu() {
 
 function initHeroVideo() {
   if (!refs.heroVideo) return;
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const prefersReducedData = connection?.saveData || /2g/.test(connection?.effectiveType || "");
+  const isMobile = window.matchMedia("(max-width: 900px)").matches;
+  const videoSrc = refs.heroVideo.dataset.src;
+
+  // Avoid large background-video downloads on mobile or data-saving connections.
+  if (!videoSrc || prefersReducedData || isMobile) return;
+
+  const source = document.createElement("source");
+  source.src = videoSrc;
+  source.type = "video/mp4";
+  refs.heroVideo.appendChild(source);
+  refs.heroVideo.load();
+
   refs.heroVideo.addEventListener("loadedmetadata", () => {
     refs.heroVideo.currentTime = 0;
     refs.heroVideo.play().catch(() => {});
