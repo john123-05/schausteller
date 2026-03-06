@@ -1166,24 +1166,20 @@ function bindMobileMenu() {
 
 function initHeroVideo() {
   if (!refs.heroVideo) return;
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  const prefersReducedData = connection?.saveData || /2g/.test(connection?.effectiveType || "");
-  const isMobile = window.matchMedia("(max-width: 900px)").matches;
   const videoSrc = refs.heroVideo.dataset.src;
 
-  // Avoid large background-video downloads on mobile or data-saving connections.
-  if (!videoSrc || prefersReducedData || isMobile) return;
+  if (!videoSrc) return;
 
-  const source = document.createElement("source");
-  source.src = videoSrc;
-  source.type = "video/mp4";
-  refs.heroVideo.appendChild(source);
+  const currentSource = refs.heroVideo.querySelector("source");
+  if (!currentSource) {
+    const source = document.createElement("source");
+    source.src = videoSrc;
+    source.type = "video/mp4";
+    refs.heroVideo.appendChild(source);
+  }
   refs.heroVideo.load();
 
-  refs.heroVideo.addEventListener("loadedmetadata", () => {
-    refs.heroVideo.currentTime = 0;
-    refs.heroVideo.play().catch(() => {});
-  });
+  refs.heroVideo.play().catch(() => {});
 }
 
 function syncOnsiteVideoControls() {
