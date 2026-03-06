@@ -129,9 +129,40 @@
       </section>
 
       <section class="memory-note-section">
-        <div class="container memory-note">
-          <p class="memory-note-title">Erinnerungen verkaufen sich.</p>
-          <p class="memory-note-text">Viele Fahrgäste möchten ihren Moment nach der Fahrt mitnehmen.</p>
+        <div class="container memory-note memory-note-layout">
+          <div class="memory-note-content">
+            <h2 class="memory-note-title">Erinnerungen <span class="text-accent">verkaufen</span> sich.</h2>
+            <p class="memory-note-text">Viele Fahrgäste möchten den Moment ihrer Fahrt mit nach Hause nehmen.</p>
+            <p class="memory-note-text memory-note-extra">
+              Liftpictures entwickelt seit über 20 Jahren automatische Foto- und Videosysteme für Fahrgeschäfte in
+              Freizeitparks und auf mobilen Veranstaltungen.
+            </p>
+            <p class="memory-note-text memory-note-extra">
+              Mit mehr als 250 Installationen in Europa und über 8 Millionen verkauften Bildern gehören unsere Systeme zu
+              den bewährten Lösungen für On-Ride Fotos.
+            </p>
+            <div class="memory-note-brand" aria-label="Liftpictures">
+              <img src="./assets/bilder/optimized/Liftpicutures Logo alt.jpg" alt="Liftpictures Logo" loading="lazy" />
+              <span>Liftpictures</span>
+            </div>
+          </div>
+          <figure class="on-site-why-video memory-note-video">
+            <video
+              id="onsite-video"
+              src="./assets/bilder/copy_0F191C71-C5D8-4696-8829-60A74ACE3526 2.MOV"
+              loop
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+            <button type="button" class="video-overlay-start" id="onsite-video-start-sound" aria-label="Video mit Ton starten">
+              <span class="video-overlay-triangle" aria-hidden="true"></span>
+            </button>
+            <figcaption class="on-site-why-video-controls">
+              <button type="button" class="video-control-btn" id="onsite-video-toggle">Play</button>
+              <button type="button" class="video-control-btn" id="onsite-audio-toggle">Ton an</button>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -176,40 +207,6 @@
             </p>
           </div>
           <div class="cards-grid" id="feature-grid"></div>
-        </div>
-      </section>
-
-      <section class="section onsite-offer" id="vor-ort-analyse">
-        <div class="container onsite-offer-grid">
-          <div class="onsite-offer-content">
-            <div class="eyebrow">Vor-Ort Analyse</div>
-            <h2>Kostenlose Vor-Ort Analyse für Ihr Fahrgeschäft</h2>
-            <p class="muted" data-i18n="onsiteOfferText">
-              Wir prüfen direkt an Ihrer Attraktion, wie ein Foto- oder Videosystem sinnvoll integriert und verkauft werden kann.
-              Kostenlos und unverbindlich.
-            </p>
-            <ul class="onsite-check-list">
-              <li>mögliche Kameraposition</li>
-              <li>passende Verkaufsoptionen</li>
-              <li>sinnvolle Integration in Ihren Ablauf</li>
-              <li>ob sich ein Setup für Ihre Attraktion rechnet</li>
-            </ul>
-            <a href="./kontakt.html#kontakt" class="btn primary" data-i18n="onsiteOfferCta">Besuch am Standort anfragen</a>
-          </div>
-          <div class="onsite-offer-media">
-            <img
-              src="./assets/bilder/Nano_Banana_2_erstelle_ein_bild_auf_so_einer_kirmes__die_aber_leer_ist__mit_einem__hnlichen_fahrgesc_1 (1).png"
-              alt="Vor-Ort Analyse am Fahrgeschäft"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="cta-band">
-        <div class="container cta-band-inner">
-          <p>Sie spielen demnächst auf einem Volksfest oder Event? Dann prüfen wir kostenlos vor Ort, welches Setup sinnvoll ist.</p>
-          <a href="./kontakt.html#kontakt" class="btn primary">Nächsten Standort eintragen</a>
         </div>
       </section>
 
@@ -287,6 +284,40 @@
               </div>
             </aside>
           </div>
+        </div>
+      </section>
+
+      <section class="section onsite-offer" id="vor-ort-analyse">
+        <div class="container onsite-offer-grid">
+          <div class="onsite-offer-content">
+            <div class="eyebrow">Vor-Ort Analyse</div>
+            <h2>Kostenlose Vor-Ort Analyse für Ihr Fahrgeschäft</h2>
+            <p class="muted" data-i18n="onsiteOfferText">
+              Wir prüfen direkt an Ihrer Attraktion, wie ein Foto- oder Videosystem sinnvoll integriert und verkauft werden kann.
+              Kostenlos und unverbindlich.
+            </p>
+            <ul class="onsite-check-list">
+              <li>mögliche Kameraposition</li>
+              <li>passende Verkaufsoptionen</li>
+              <li>sinnvolle Integration in Ihren Ablauf</li>
+              <li>ob sich ein Setup für Ihre Attraktion rechnet</li>
+            </ul>
+            <a href="./kontakt.html#kontakt" class="btn primary" data-i18n="onsiteOfferCta">Besuch am Standort anfragen</a>
+          </div>
+          <div class="onsite-offer-media">
+            <img
+              src="./assets/bilder/Nano_Banana_2_erstelle_ein_bild_auf_so_einer_kirmes__die_aber_leer_ist__mit_einem__hnlichen_fahrgesc_1 (1).png"
+              alt="Vor-Ort Analyse am Fahrgeschäft"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container cta-band-inner">
+          <p>Sie spielen demnächst auf einem Volksfest oder Event? Dann prüfen wir kostenlos vor Ort, welches Setup sinnvoll ist.</p>
+          <a href="./kontakt.html#kontakt" class="btn primary">Nächsten Standort eintragen</a>
         </div>
       </section>
 
@@ -427,20 +458,53 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div>
-          <a href="#top" class="logo" style="margin-bottom: 0.4rem; display: inline-flex">
-            <span class="logo-box" aria-hidden="true"></span>
+        <div class="footer-company">
+          <a href="#top" class="logo footer-logo">
+            <img class="logo-mark" src="./assets/bilder/optimized/Liftpicutures Logo alt.jpg" alt="Liftpictures Logo" />
             <span>Liftpictures</span>
           </a>
-          <div class="note" style="color: rgba(255, 255, 255, 0.72)" data-i18n="footerText">
-            Liftpictures - Foto- & Videosysteme für Attractions
-          </div>
+          <p class="footer-copy" data-i18n="footerCompanyLine1">Liftpictures</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine2">Fotoanlagen und Videosysteme</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine3">Lehmkuhlstr. 18</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine4">32108 Bad Salzuflen</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine5">Deutschland</p>
+
+          <div class="footer-spacer"></div>
+
+          <p class="footer-copy"><span data-i18n="footerPhoneLabel">Telefon:</span> <a href="tel:+495222850490">+49 5222 850490</a></p>
+          <p class="footer-copy"><span data-i18n="footerMailLabel">E-Mail:</span> <a href="mailto:info@liftpictures.com">info@liftpictures.com</a></p>
+          <p class="footer-copy"><span data-i18n="footerWebLabel">Internet:</span> <a href="https://www.liftpictures.com" target="_blank" rel="noreferrer">www.liftpictures.com</a></p>
+
+          <div class="footer-spacer"></div>
+
+          <p class="footer-copy" data-i18n="footerHoursTitle">Geschäftszeiten:</p>
+          <p class="footer-copy" data-i18n="footerHoursLine1">Mo - Fr: 08:30 - 17:00 Uhr,</p>
+          <p class="footer-copy" data-i18n="footerHoursLine2">außerhalb dieser Zeiten nach Vereinbarung.</p>
         </div>
 
-        <div class="footer-links">
-          <a href="#" data-i18n="footerImprint">Impressum</a>
-          <a href="#" data-i18n="footerPrivacy">Datenschutz</a>
-          <a href="./kontakt.html" data-i18n="footerContact">Kontakt</a>
+        <div class="footer-right">
+          <h3 class="footer-follow" data-i18n="footerFollow">Folgen Sie uns:</h3>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/liftpictures_fotosysteme/" target="_blank" rel="noreferrer" aria-label="Instagram"
+              >Instagram</a
+            >
+            <a
+              href="https://www.facebook.com/people/Liftpictures-Fotosysteme/61579119519474/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              >Facebook</a
+            >
+            <a href="https://linkedin.com/company/liftpicutres/" target="_blank" rel="noreferrer" aria-label="LinkedIn"
+              >LinkedIn</a
+            >
+          </div>
+
+          <div class="footer-links">
+            <a class="footer-imprint-main" href="./impressum.html" data-i18n="footerImprint">Impressum</a>
+            <a href="./datenschutz.html" data-i18n="footerPrivacy">Datenschutz</a>
+            <a href="./kontakt.html" data-i18n="footerContact">Kontakt</a>
+          </div>
         </div>
       </div>
       <div class="container" style="margin-top: 0.8rem; font-size: 0.82rem; color: rgba(255, 255, 255, 0.52)">
@@ -448,6 +512,32 @@
       </div>
     </footer>
 
-    <script src="./shared/script.js"></script>
+    <aside class="call-widget" id="call-widget" aria-label="Direktkontakt">
+      <div class="call-widget-panel">
+        <button type="button" class="call-widget-tab" id="call-widget-tab" aria-expanded="true" data-i18n="callWidgetTab">
+          Anrufen
+        </button>
+        <div class="call-widget-details">
+          <button
+            type="button"
+            class="call-widget-close"
+            id="call-widget-close"
+            aria-label="Widget schließen"
+            data-i18n-aria="callWidgetCloseAria"
+          >
+            ×
+          </button>
+          <div class="call-widget-eyebrow" data-i18n="callWidgetEyebrow">Direktkontakt</div>
+          <div class="call-widget-person">
+            <span data-i18n="callWidgetRole">Ansprechpartner</span>
+            <strong data-i18n="callWidgetName">Geschäftsführer Tom Nolting</strong>
+          </div>
+          <a class="call-widget-number" href="tel:+495222850490">+49 5222 850490</a>
+          <a class="call-widget-cta" href="tel:+495222850490" data-i18n="callWidgetCta">Jetzt anrufen</a>
+        </div>
+      </div>
+    </aside>
+
+    <script type="module" src="./shared/script.js"></script>
   </body>
 </html>

@@ -138,6 +138,28 @@ const copy = {
       "Sie möchten erst Unterlagen sehen? Tragen Sie E-Mail, Name und Fahrgeschäft ein - wir senden Ihnen das passende Infomaterial zu.",
     pdfRequestButton: "PDF per E-Mail senden",
     pdfRequestSuccess: "Danke. Das PDF wird an Ihre E-Mail-Adresse gesendet.",
+    callWidgetTab: "Anrufen",
+    callWidgetEyebrow: "Direktkontakt",
+    callWidgetRole: "Ansprechpartner",
+    callWidgetName: "Geschäftsführer Tom Nolting",
+    callWidgetCta: "Jetzt anrufen",
+    callWidgetCloseAria: "Widget schließen",
+    videoPlay: "Play",
+    videoPause: "Pause",
+    videoSoundOn: "Ton an",
+    videoSoundOff: "Ton aus",
+    footerCompanyLine1: "Liftpictures",
+    footerCompanyLine2: "Fotoanlagen und Videosysteme",
+    footerCompanyLine3: "Lehmkuhlstr. 18",
+    footerCompanyLine4: "32108 Bad Salzuflen",
+    footerCompanyLine5: "Deutschland",
+    footerPhoneLabel: "Telefon:",
+    footerMailLabel: "E-Mail:",
+    footerWebLabel: "Internet:",
+    footerHoursTitle: "Geschäftszeiten:",
+    footerHoursLine1: "Mo - Fr: 08:30 - 17:00 Uhr,",
+    footerHoursLine2: "außerhalb dieser Zeiten nach Vereinbarung.",
+    footerFollow: "Folgen Sie uns:",
     onsiteOfferText:
       "Wir prüfen direkt an Ihrer Attraktion, wie ein Foto- oder Videosystem sinnvoll integriert und verkauft werden kann. Kostenlos und unverbindlich.",
     onsiteOfferCta: "Besuch am Standort anfragen",
@@ -285,6 +307,28 @@ const copy = {
     pdfRequestText: "Prefer to review documents first? Enter email, name, and ride type and we will send suitable material.",
     pdfRequestButton: "Send PDF by email",
     pdfRequestSuccess: "Thanks. The PDF will be sent to your email address.",
+    callWidgetTab: "Call",
+    callWidgetEyebrow: "Direct contact",
+    callWidgetRole: "Contact person",
+    callWidgetName: "Managing Director Tom Nolting",
+    callWidgetCta: "Call now",
+    callWidgetCloseAria: "Close widget",
+    videoPlay: "Play",
+    videoPause: "Pause",
+    videoSoundOn: "Sound on",
+    videoSoundOff: "Sound off",
+    footerCompanyLine1: "Liftpictures",
+    footerCompanyLine2: "Photo and video systems",
+    footerCompanyLine3: "Lehmkuhlstr. 18",
+    footerCompanyLine4: "32108 Bad Salzuflen",
+    footerCompanyLine5: "Germany",
+    footerPhoneLabel: "Phone:",
+    footerMailLabel: "Email:",
+    footerWebLabel: "Web:",
+    footerHoursTitle: "Business hours:",
+    footerHoursLine1: "Mon - Fri: 08:30 - 17:00,",
+    footerHoursLine2: "outside these hours by appointment.",
+    footerFollow: "Follow us:",
     onsiteOfferText:
       "We check directly at your attraction how a photo or video setup can be integrated and sold in a practical way. Free and non-binding.",
     onsiteOfferCta: "Request on-site visit",
@@ -618,6 +662,10 @@ const state = {
 
 const refs = {
   heroVideo: document.getElementById("hero-video"),
+  onsiteVideo: document.getElementById("onsite-video"),
+  onsiteVideoStartSound: document.getElementById("onsite-video-start-sound"),
+  onsiteVideoToggle: document.getElementById("onsite-video-toggle"),
+  onsiteAudioToggle: document.getElementById("onsite-audio-toggle"),
   featureGrid: document.getElementById("feature-grid"),
   rideGrid: document.getElementById("ride-grid"),
   calcForm: document.getElementById("calc-form"),
@@ -630,6 +678,9 @@ const refs = {
   siteHeader: document.querySelector(".site-header"),
   menuToggle: document.querySelector("[data-menu-toggle]"),
   navLinks: document.querySelectorAll(".header-nav .nav-link"),
+  callWidget: document.getElementById("call-widget"),
+  callWidgetTab: document.getElementById("call-widget-tab"),
+  callWidgetClose: document.getElementById("call-widget-close"),
   contactForm: document.getElementById("lead-form"),
   formStatus: document.getElementById("form-status"),
   pdfForm: document.getElementById("pdf-form"),
@@ -928,6 +979,45 @@ function bindPdfForm() {
   });
 }
 
+function setCallWidgetCollapsed(collapsed, persist = true) {
+  if (!refs.callWidget || !refs.callWidgetTab) return;
+  refs.callWidget.classList.toggle("is-collapsed", collapsed);
+  refs.callWidgetTab.setAttribute("aria-expanded", String(!collapsed));
+  if (persist) {
+    localStorage.setItem("lp_call_widget_collapsed", collapsed ? "1" : "0");
+  }
+}
+
+function bindCallWidget() {
+  if (!refs.callWidget || !refs.callWidgetTab) return;
+  const hiddenByDefault = localStorage.getItem("lp_call_widget_hidden") === "1";
+  if (hiddenByDefault) {
+    refs.callWidget.classList.add("is-hidden");
+    return;
+  }
+  const storedState = localStorage.getItem("lp_call_widget_collapsed");
+  const collapsedByDefault = storedState === "1";
+  setCallWidgetCollapsed(collapsedByDefault, false);
+
+  if (!collapsedByDefault) {
+    window.setTimeout(() => {
+      setCallWidgetCollapsed(true, true);
+    }, 3400);
+  }
+
+  refs.callWidgetTab.addEventListener("click", () => {
+    const isCollapsed = refs.callWidget.classList.contains("is-collapsed");
+    setCallWidgetCollapsed(!isCollapsed, true);
+  });
+
+  if (refs.callWidgetClose) {
+    refs.callWidgetClose.addEventListener("click", () => {
+      refs.callWidget.classList.add("is-hidden");
+      localStorage.setItem("lp_call_widget_hidden", "1");
+    });
+  }
+}
+
 function setMenuOpen(isOpen) {
   if (!refs.siteHeader || !refs.menuToggle) return;
   refs.siteHeader.classList.toggle("menu-open", isOpen);
@@ -977,8 +1067,86 @@ function initHeroVideo() {
   });
 }
 
+function syncOnsiteVideoControls() {
+  if (!refs.onsiteVideo) return;
+  if (refs.onsiteVideoToggle) {
+    refs.onsiteVideoToggle.textContent = refs.onsiteVideo.paused ? t("videoPlay") : t("videoPause");
+  }
+  if (refs.onsiteAudioToggle) {
+    refs.onsiteAudioToggle.textContent = refs.onsiteVideo.muted ? t("videoSoundOn") : t("videoSoundOff");
+  }
+  if (refs.onsiteVideoStartSound) {
+    const showAtStart = refs.onsiteVideo.paused && refs.onsiteVideo.currentTime < 0.15;
+    refs.onsiteVideoStartSound.classList.toggle("is-hidden", !showAtStart);
+  }
+}
+
+function bindOnsiteVideo() {
+  if (!refs.onsiteVideo) return;
+
+  // Do not autoplay: initial state is paused + muted until user interaction.
+  refs.onsiteVideo.muted = true;
+  refs.onsiteVideo.pause();
+  refs.onsiteVideo.currentTime = 0;
+  syncOnsiteVideoControls();
+
+  let firstManualPlay = true;
+  const playFromUser = (fromStart = false) => {
+    if (fromStart) refs.onsiteVideo.currentTime = 0;
+    if (firstManualPlay) {
+      refs.onsiteVideo.muted = false;
+      firstManualPlay = false;
+    }
+    refs.onsiteVideo.play().catch(() => {});
+  };
+
+  refs.onsiteVideo.addEventListener("play", syncOnsiteVideoControls);
+  refs.onsiteVideo.addEventListener("pause", syncOnsiteVideoControls);
+  refs.onsiteVideo.addEventListener("volumechange", syncOnsiteVideoControls);
+  refs.onsiteVideo.addEventListener("timeupdate", syncOnsiteVideoControls);
+  refs.onsiteVideo.addEventListener("loadedmetadata", syncOnsiteVideoControls);
+
+  if (refs.onsiteVideoToggle) {
+    refs.onsiteVideoToggle.addEventListener("click", () => {
+      if (refs.onsiteVideo.paused) {
+        playFromUser(false);
+      } else {
+        refs.onsiteVideo.pause();
+      }
+      syncOnsiteVideoControls();
+    });
+  }
+
+  if (refs.onsiteAudioToggle) {
+    refs.onsiteAudioToggle.addEventListener("click", () => {
+      refs.onsiteVideo.muted = !refs.onsiteVideo.muted;
+      if (!refs.onsiteVideo.paused) {
+        refs.onsiteVideo.play().catch(() => {});
+      }
+      syncOnsiteVideoControls();
+    });
+  }
+
+  if (refs.onsiteVideoStartSound) {
+    refs.onsiteVideoStartSound.addEventListener("click", () => {
+      playFromUser(true);
+      syncOnsiteVideoControls();
+    });
+  }
+
+  refs.onsiteVideo.addEventListener("click", () => {
+    if (refs.onsiteVideo.paused) {
+      playFromUser(false);
+    } else {
+      refs.onsiteVideo.pause();
+    }
+    syncOnsiteVideoControls();
+  });
+}
+
 function rerender() {
   applyI18n();
+  syncOnsiteVideoControls();
   renderFeatures();
   renderRides();
   renderSales();
@@ -990,7 +1158,9 @@ function rerender() {
 function init() {
   if (refs.year) refs.year.textContent = String(new Date().getFullYear());
   initHeroVideo();
+  bindOnsiteVideo();
   bindLanguageSwitcher();
+  bindCallWidget();
   bindMobileMenu();
   bindCalculator();
   bindForm();

@@ -191,20 +191,53 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div>
-          <a href="./index.html" class="logo" style="margin-bottom: 0.4rem; display: inline-flex">
+        <div class="footer-company">
+          <a href="./index.html" class="logo footer-logo">
             <img class="logo-mark" src="./assets/bilder/optimized/Liftpicutures Logo alt.jpg" alt="Liftpictures Logo" />
             <span>Liftpictures</span>
           </a>
-          <div class="note" style="color: rgba(255, 255, 255, 0.72)" data-i18n="footerText">
-            Liftpictures - Foto- & Videosysteme für Attractions
-          </div>
+          <p class="footer-copy" data-i18n="footerCompanyLine1">Liftpictures</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine2">Fotoanlagen und Videosysteme</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine3">Lehmkuhlstr. 18</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine4">32108 Bad Salzuflen</p>
+          <p class="footer-copy" data-i18n="footerCompanyLine5">Deutschland</p>
+
+          <div class="footer-spacer"></div>
+
+          <p class="footer-copy"><span data-i18n="footerPhoneLabel">Telefon:</span> <a href="tel:+495222850490">+49 5222 850490</a></p>
+          <p class="footer-copy"><span data-i18n="footerMailLabel">E-Mail:</span> <a href="mailto:info@liftpictures.com">info@liftpictures.com</a></p>
+          <p class="footer-copy"><span data-i18n="footerWebLabel">Internet:</span> <a href="https://www.liftpictures.com" target="_blank" rel="noreferrer">www.liftpictures.com</a></p>
+
+          <div class="footer-spacer"></div>
+
+          <p class="footer-copy" data-i18n="footerHoursTitle">Geschäftszeiten:</p>
+          <p class="footer-copy" data-i18n="footerHoursLine1">Mo - Fr: 08:30 - 17:00 Uhr,</p>
+          <p class="footer-copy" data-i18n="footerHoursLine2">außerhalb dieser Zeiten nach Vereinbarung.</p>
         </div>
 
-        <div class="footer-links">
-          <a href="#" data-i18n="footerImprint">Impressum</a>
-          <a href="#" data-i18n="footerPrivacy">Datenschutz</a>
-          <a href="#kontakt" data-i18n="footerContact">Kontakt</a>
+        <div class="footer-right">
+          <h3 class="footer-follow" data-i18n="footerFollow">Folgen Sie uns:</h3>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/liftpictures_fotosysteme/" target="_blank" rel="noreferrer" aria-label="Instagram"
+              >Instagram</a
+            >
+            <a
+              href="https://www.facebook.com/people/Liftpictures-Fotosysteme/61579119519474/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              >Facebook</a
+            >
+            <a href="https://linkedin.com/company/liftpicutres/" target="_blank" rel="noreferrer" aria-label="LinkedIn"
+              >LinkedIn</a
+            >
+          </div>
+
+          <div class="footer-links">
+            <a class="footer-imprint-main" href="./impressum.html" data-i18n="footerImprint">Impressum</a>
+            <a href="./datenschutz.html" data-i18n="footerPrivacy">Datenschutz</a>
+            <a href="#kontakt" data-i18n="footerContact">Kontakt</a>
+          </div>
         </div>
       </div>
       <div class="container" style="margin-top: 0.8rem; font-size: 0.82rem; color: rgba(255, 255, 255, 0.52)">
@@ -212,6 +245,32 @@
       </div>
     </footer>
 
-    <script src="./shared/script.js"></script>
+    <aside class="call-widget" id="call-widget" aria-label="Direktkontakt">
+      <div class="call-widget-panel">
+        <button type="button" class="call-widget-tab" id="call-widget-tab" aria-expanded="true" data-i18n="callWidgetTab">
+          Anrufen
+        </button>
+        <div class="call-widget-details">
+          <button
+            type="button"
+            class="call-widget-close"
+            id="call-widget-close"
+            aria-label="Widget schließen"
+            data-i18n-aria="callWidgetCloseAria"
+          >
+            ×
+          </button>
+          <div class="call-widget-eyebrow" data-i18n="callWidgetEyebrow">Direktkontakt</div>
+          <div class="call-widget-person">
+            <span data-i18n="callWidgetRole">Ansprechpartner</span>
+            <strong data-i18n="callWidgetName">Geschäftsführer Tom Nolting</strong>
+          </div>
+          <a class="call-widget-number" href="tel:+495222850490">+49 5222 850490</a>
+          <a class="call-widget-cta" href="tel:+495222850490" data-i18n="callWidgetCta">Jetzt anrufen</a>
+        </div>
+      </div>
+    </aside>
+
+    <script type="module" src="./shared/script.js"></script>
   </body>
 </html>
