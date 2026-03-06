@@ -1,19 +1,20 @@
 const copy = {
   de: {
     navBenefits: "Vorteile",
+    navOnsite: "Vor-Ort Analyse",
     navSales: "Verkaufssysteme",
     navExamples: "Beispiele",
     navReferences: "Referenzen",
     navFaq: "FAQ",
     navContact: "Kontakt",
-    headerCta: "Kostenlos beraten lassen",
+    headerCta: "Vor-Ort Analyse anfragen",
     heroTag: "Liftpictures für mobile Fahrgeschäfte",
     heroTitle: "Mehr Umsatz pro Fahrt - automatische Foto- & Videosysteme für Schausteller.",
     heroSub:
-      "Schneller Auf- und Abbau. Robust für Transport. Flexible Verkaufsstationen: Bargeld, Kasse oder QR-Onlineverkauf.",
-    heroPrimary: "Jetzt kostenlos anfragen",
-    heroSecondary: "PDF Infomaterial",
-    trustLine: "Made in Germany • Service & Support • DSGVO-konform",
+      "Wir prüfen kostenlos vor Ort, wie sich ein Foto- oder Videosystem an Ihrem Fahrgeschäft optimal installieren und verkaufen lässt.",
+    heroPrimary: "Kostenlose Vor-Ort Analyse anfragen",
+    heroSecondary: "Direkt anrufen",
+    trustLine: "Made in Germany • Service & Support • DSGVO-konform • Vor-Ort möglich",
     heroPlaceholder: "Platzhalter: Kamera + Fahrgeschäft / Hero-Bild",
     stats1: "20 Jahre Erfahrung",
     stats2: "250+ Projekte europaweit",
@@ -46,18 +47,25 @@ const copy = {
     calcConversionLabel: "Conversion in (%)",
     calcConversionHint: "Prozentzahl an Besuchern, die ein Bild kaufen (Erfahrungswert: 15-30%).",
     calcButton: "Jetzt berechnen",
+    calcOnsiteHint:
+      "Passt dieses Potenzial zu Ihrem Fahrgeschäft? Dann prüfen wir kostenlos vor Ort, wie sich das Setup bei Ihnen umsetzen lässt.",
     calcPdf: "PDF Infomaterial",
-    calcConsult: "Kostenlos beraten lassen",
+    calcConsult: "Vor-Ort Analyse für mein Fahrgeschäft anfragen",
     calcResultLabel: "Ergebnis",
     salesEyebrow: "Verkaufssysteme",
     salesTitle: "Verkaufsoptionen für jede Situation",
     salesText:
       "Ob Self-Service, Kasse oder komplett digital: Sie wählen das Modell passend zu Durchlauf und Personal.",
+    salesOnsiteText:
+      "Welche Verkaufsoption am besten passt, hängt stark vom Platz, Besucherfluss und Ihrer bestehenden Organisation ab. Genau deshalb ist eine Vor-Ort Einschätzung oft der schnellste Weg zur passenden Lösung.",
+    salesOnsiteCta: "Verkaufsmodell vor Ort prüfen",
     flowTitle: "Mini-Flow: So läuft der Verkauf",
     trustEyebrow: "Vertrauen & Technologie",
     trustTitle: "Bewährte Technik - sicher, wartbar, flexibel",
     trustText:
-      "Platzhalter für Partner, Hardware und Infrastruktur. Später einfach mit echten Logos ersetzen.",
+      "Bewährte Technik für mobile Fahrgeschäfte - robust, wartbar und auf laufenden Betrieb ausgelegt.",
+    trustSubline:
+      "Bewährte Technik für mobile Fahrgeschäfte - mit Support, robuster Hardware und flexiblen Verkaufswegen.",
     trustBullet1: "Made in Germany",
     trustBullet2: "DSGVO-Prozesse",
     trustBullet3: "Schneller Support",
@@ -65,10 +73,10 @@ const copy = {
     caseTitle: "Beispiel aus der Praxis",
     caseText:
       "Ein mobiles Fahrgeschäft hat das Fotosystem in eine laufende Saison integriert und die Verkäufe pro Tag deutlich erhöht - ohne mehr Personal an der Kasse.",
-    metric1Label: "Verkäufe / Tag",
-    metric2Label: "Mehrumsatz / Event",
-    metric3Label: "Setup-Zeit",
-    caseCta: "Ähnliche Ergebnisse anfragen",
+    metric1Label: "Verkäufe / Tag zusätzlich",
+    metric2Label: "Zusatzumsatz / Event",
+    metric3Label: "Setup in X Stunden",
+    caseCta: "Besuch am Standort anfragen",
     galleryEyebrow: "Beispiele",
     galleryTitle: "Beispielbilder aus dem Einsatz",
     galleryText:
@@ -84,14 +92,18 @@ const copy = {
     faqEyebrow: "Fragen",
     faqTitle: "FAQ für Schausteller",
     contactEyebrow: "Kontakt",
-    contactTitle: "In 60 Sekunden prüfen, ob es für Ihr Fahrgeschäft passt",
+    contactTitle: "In 60 Sekunden Vor-Ort Termin für Ihr Fahrgeschäft anfragen",
     contactText:
-      "Kurzes Formular ausfüllen - wir melden uns mit einer klaren Empfehlung für Ihr Setup.",
+      "Tragen Sie Ihren nächsten Standort ein - wir prüfen, ob ein Besuch vor Ort sinnvoll und möglich ist.",
     labelName: "Name",
     labelCompany: "Firma",
     labelPhone: "Handy",
     labelEmail: "E-Mail",
     labelRide: "Fahrgeschäft-Typ",
+    labelNextLocation: "Nächster Standort / Volksfest / Event",
+    labelPeriod: "Zeitraum / Datum",
+    labelCity: "Stadt",
+    labelSalesInterest: "Verkaufsinteresse",
     labelMessage: "Nachricht",
     optionSelect: "Bitte auswählen",
     optionCoaster: "Achterbahn",
@@ -102,22 +114,33 @@ const copy = {
     optionFunhouse: "Funhouse / Laufgeschäft",
     optionSimulator: "Simulator",
     optionOther: "Andere",
+    salesInterestUnknown: "weiß ich noch nicht",
+    salesInterestAutomat: "Automat",
+    salesInterestKasse: "Kasse",
+    salesInterestQr: "QR",
     consentText:
       "Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden dürfen. (UI-Hinweis)",
-    formPrimary: "Kostenlose Beratung anfragen",
+    formPrimary: "Vor-Ort Termin anfragen",
     formSecondary: "Rückruf anfordern",
+    contactTrustNote:
+      "Kostenlos und unverbindlich - wir melden uns mit einer klaren Einschätzung, ob ein Vor-Ort Termin für Ihr Fahrgeschäft sinnvoll ist.",
     formSuccess:
-      "Danke. Anfrage erfasst (Demo). Im Live-Betrieb wird hier an CRM oder E-Mail übergeben.",
+      "Danke. Anfrage erfasst (Demo). Wir melden uns mit einer Einschätzung zum möglichen Vor-Ort Termin.",
     contactInfoTitle: "Direktkontakt",
     contactInfo1: "Telefon: +49 0000 000000",
     contactInfo2: "E-Mail: kontakt@liftpictures.de",
     contactInfo3: "Öffnungszeiten: Mo-Fr 08:00-18:00",
     contactInfo4: "Service auf Events nach Absprache",
-    pdfRequestTitle: "PDF per E-Mail erhalten",
+    contactInfo5: "Vor-Ort Besuche nach Absprache",
+    contactInfo6: "Auch an Veranstaltungsorten und Volksfesten möglich",
+    pdfRequestTitle: "Infomaterial vorab erhalten",
     pdfRequestText:
-      "Tragen Sie E-Mail, Name und Fahrgeschäft ein. Wir senden Ihnen das Infomaterial direkt zu.",
+      "Sie möchten erst Unterlagen sehen? Tragen Sie E-Mail, Name und Fahrgeschäft ein - wir senden Ihnen das passende Infomaterial zu.",
     pdfRequestButton: "PDF per E-Mail senden",
     pdfRequestSuccess: "Danke. Das PDF wird an Ihre E-Mail-Adresse gesendet.",
+    onsiteOfferText:
+      "Wir prüfen direkt an Ihrer Attraktion, wie ein Foto- oder Videosystem sinnvoll integriert und verkauft werden kann. Kostenlos und unverbindlich.",
+    onsiteOfferCta: "Besuch am Standort anfragen",
     footerText: "Liftpictures - Foto- & Videosysteme für Attractions",
     footerImprint: "Impressum",
     footerPrivacy: "Datenschutz",
@@ -128,19 +151,20 @@ const copy = {
   },
   en: {
     navBenefits: "Benefits",
+    navOnsite: "On-site analysis",
     navSales: "Sales Systems",
     navExamples: "Examples",
     navReferences: "References",
     navFaq: "FAQ",
     navContact: "Contact",
-    headerCta: "Book free consultation",
+    headerCta: "Request on-site analysis",
     heroTag: "Liftpictures for mobile rides",
     heroTitle: "More revenue per ride - automated photo & video systems for showmen.",
     heroSub:
-      "Fast setup and teardown. Transport-ready hardware. Flexible sales stations: cash desk, kiosk, or QR online sales.",
-    heroPrimary: "Request free consultation",
-    heroSecondary: "PDF brochure",
-    trustLine: "Made in Germany • Service & Support • GDPR-ready",
+      "We provide a free on-site check to evaluate how a photo or video setup can be installed and sold at your attraction.",
+    heroPrimary: "Request free on-site analysis",
+    heroSecondary: "Call now",
+    trustLine: "Made in Germany • Service & Support • GDPR-ready • On-site possible",
     heroPlaceholder: "Placeholder: camera + ride / hero image",
     stats1: "20 years of experience",
     stats2: "250+ projects across Europe",
@@ -173,17 +197,23 @@ const copy = {
     calcConversionLabel: "Conversion (%)",
     calcConversionHint: "Percentage of visitors who buy an image (typical range: 15-30%).",
     calcButton: "Calculate now",
+    calcOnsiteHint:
+      "If this potential fits your ride, we can check on site how the setup can be implemented in your operation.",
     calcPdf: "PDF brochure",
-    calcConsult: "Book free consultation",
+    calcConsult: "Request on-site analysis for my ride",
     calcResultLabel: "Result",
     salesEyebrow: "Sales Systems",
     salesTitle: "Sales options for every scenario",
     salesText:
       "Self-service, cashier sales, or fully digital: choose what fits your throughput and staffing.",
+    salesOnsiteText:
+      "The right sales option depends on available space, visitor flow, and your current organization. That is why an on-site assessment is often the fastest path to the right setup.",
+    salesOnsiteCta: "Check sales model on site",
     flowTitle: "Mini flow: How sales work",
     trustEyebrow: "Trust & Technology",
     trustTitle: "Proven technology - secure, maintainable, GDPR-ready",
-    trustText: "Placeholder partner and technology logos. Replace with real references later.",
+    trustText: "Proven technology for mobile rides - robust, maintainable, and built for continuous operation.",
+    trustSubline: "Proven technology for mobile rides with support, robust hardware, and flexible sales paths.",
     trustBullet1: "Made in Germany",
     trustBullet2: "GDPR processes",
     trustBullet3: "Fast support",
@@ -191,10 +221,10 @@ const copy = {
     caseTitle: "Real-world example",
     caseText:
       "A mobile attraction integrated the photo system during an active season and significantly increased daily sales without adding cash-desk staff.",
-    metric1Label: "Sales / day",
-    metric2Label: "Extra revenue / event",
-    metric3Label: "Setup time",
-    caseCta: "Request similar results",
+    metric1Label: "Additional sales / day",
+    metric2Label: "Additional revenue / event",
+    metric3Label: "Integrated in X hours",
+    caseCta: "Request on-site visit",
     galleryEyebrow: "Examples",
     galleryTitle: "Example gallery from operations",
     galleryText:
@@ -210,14 +240,18 @@ const copy = {
     faqEyebrow: "Questions",
     faqTitle: "FAQ for mobile operators",
     contactEyebrow: "Contact",
-    contactTitle: "Check in 60 seconds if this fits your ride",
+    contactTitle: "Request an on-site appointment for your ride in 60 seconds",
     contactText:
-      "Fill in the short form and we will return with a practical recommendation for your setup.",
+      "Share your next location and we will check whether an on-site visit is practical and useful.",
     labelName: "Name",
     labelCompany: "Company",
     labelPhone: "Mobile",
     labelEmail: "Email",
     labelRide: "Ride type",
+    labelNextLocation: "Next location / event",
+    labelPeriod: "Period / date",
+    labelCity: "City",
+    labelSalesInterest: "Sales interest",
     labelMessage: "Message",
     optionSelect: "Please select",
     optionCoaster: "Roller coaster",
@@ -228,21 +262,32 @@ const copy = {
     optionFunhouse: "Funhouse / walkthrough",
     optionSimulator: "Simulator",
     optionOther: "Other",
+    salesInterestUnknown: "not sure yet",
+    salesInterestAutomat: "Kiosk",
+    salesInterestKasse: "Cash desk",
+    salesInterestQr: "QR",
     consentText:
       "I agree that my data may be processed for contact purposes. (UI placeholder)",
-    formPrimary: "Request free consultation",
+    formPrimary: "Request on-site appointment",
     formSecondary: "Request callback",
+    contactTrustNote:
+      "Free and non-binding - we will send a clear assessment if an on-site visit makes sense for your attraction.",
     formSuccess:
-      "Thanks. Request captured (demo). In production this would be sent to CRM or email.",
+      "Thanks. Request captured (demo). We will return with an assessment for a possible on-site visit.",
     contactInfoTitle: "Direct contact",
     contactInfo1: "Phone: +49 0000 000000",
     contactInfo2: "Email: kontakt@liftpictures.de",
     contactInfo3: "Opening hours: Mon-Fri 08:00-18:00",
     contactInfo4: "Event support on request",
-    pdfRequestTitle: "Get PDF by email",
-    pdfRequestText: "Enter email, name, and ride type. We will send the brochure directly to you.",
+    contactInfo5: "On-site visits by arrangement",
+    contactInfo6: "Possible at fairgrounds and event locations",
+    pdfRequestTitle: "Get info material first",
+    pdfRequestText: "Prefer to review documents first? Enter email, name, and ride type and we will send suitable material.",
     pdfRequestButton: "Send PDF by email",
     pdfRequestSuccess: "Thanks. The PDF will be sent to your email address.",
+    onsiteOfferText:
+      "We check directly at your attraction how a photo or video setup can be integrated and sold in a practical way. Free and non-binding.",
+    onsiteOfferCta: "Request on-site visit",
     footerText: "Liftpictures - Photo & video systems for attractions",
     footerImprint: "Imprint",
     footerPrivacy: "Privacy",
@@ -491,6 +536,44 @@ const segmentData = {
           en: "Yes. Remote support is standard; on-site support can be planned when needed.",
         },
       },
+      {
+        q: { de: "Kommt Liftpictures auch direkt zu meinem Standort?", en: "Do you also visit our location directly?" },
+        a: {
+          de: "Ja. Wir prüfen nach Ihrer Anfrage, ob ein Vor-Ort Termin an Ihrem nächsten Standort sinnvoll und möglich ist.",
+          en: "Yes. After your request we check whether an on-site visit at your next location is practical and possible.",
+        },
+      },
+      {
+        q: { de: "Wie läuft eine Vor-Ort Analyse ab?", en: "How does an on-site analysis work?" },
+        a: {
+          de: "Wir gehen Kamera-Position, Verkaufsweg, Besucherfluss und Integration am Fahrgeschäft gemeinsam durch und geben eine klare Empfehlung.",
+          en: "We review camera position, sales flow, visitor flow, and operational integration at the ride and provide a clear recommendation.",
+        },
+      },
+      {
+        q: { de: "Was muss ich für einen Besuch vorbereiten?", en: "What should we prepare for a visit?" },
+        a: {
+          de: "Hilfreich sind Standort, Zeitraum und Fahrgeschäft-Typ. Alles Weitere klären wir im kurzen Vorgespräch.",
+          en: "Helpful inputs are location, period, and ride type. We clarify the rest in a short pre-call.",
+        },
+      },
+      {
+        q: {
+          de: "Können Sie uns auch auf einem Volksfest oder Event besuchen?",
+          en: "Can you also visit us at a fairground or event?",
+        },
+        a: {
+          de: "Ja, nach Absprache sind Vor-Ort Termine auch an Veranstaltungsorten und Volksfesten möglich.",
+          en: "Yes, by arrangement on-site visits are also possible at event locations and fairgrounds.",
+        },
+      },
+      {
+        q: { de: "Wie schnell bekommen wir nach dem Besuch eine Einschätzung?", en: "How quickly do we get an assessment?" },
+        a: {
+          de: "In der Regel kurzfristig. Sie erhalten eine praxisnahe Einschätzung zu Setup, Verkauf und nächstem sinnvollen Schritt.",
+          en: "Usually quickly. You receive a practical assessment for setup, sales model, and next step.",
+        },
+      },
     ],
     gallery: Array.from({ length: 12 }, (_, idx) => ({
       label: { de: `Placeholder Foto ${idx + 1}`, en: `Placeholder image ${idx + 1}` },
@@ -705,18 +788,29 @@ function renderSales() {
     "./assets/bilder/optimized/hergis2.jpg",
     "./assets/bilder/optimized/image.jpg",
   ];
+  const salesFallbackImage = "./assets/bilder/optimized/IMG_4580.jpg";
   refs.salesGrid.innerHTML = content.sales
     .map((item, index) => {
       const points = item.points[state.lang].map((point) => `<li>${point}</li>`).join("");
+      const salesImage = salesImages[index] || salesFallbackImage;
       return `
         <article class="sales-card">
-          <img class="sales-image" src="${salesImages[index]}" alt="${item.title[state.lang]}" loading="lazy" />
+          <img class="sales-image" src="${salesImage}" data-fallback="${salesFallbackImage}" alt="${item.title[state.lang]}" loading="lazy" />
           <h3>${item.title[state.lang]}</h3>
           <ul>${points}</ul>
         </article>
       `;
     })
     .join("");
+
+  refs.salesGrid.querySelectorAll(".sales-image").forEach((image) => {
+    image.addEventListener("error", () => {
+      const fallback = image.dataset.fallback;
+      if (!fallback) return;
+      image.dataset.fallback = "";
+      image.src = fallback;
+    });
+  });
 
   refs.flowGrid.innerHTML = content.flow
     .map(

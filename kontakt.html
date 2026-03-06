@@ -44,7 +44,7 @@
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
 
-        <a href="#kontakt" class="btn primary header-cta" data-i18n="headerCta">Kostenlos beraten lassen</a>
+        <a href="#kontakt" class="btn primary header-cta" data-i18n="headerCta">Vor-Ort Analyse anfragen</a>
       </div>
     </header>
 
@@ -54,9 +54,9 @@
           <div class="form-card">
             <div class="section-head" style="margin-bottom: 1rem">
               <div class="eyebrow" data-i18n="contactEyebrow">Kontakt</div>
-              <h2 data-i18n="contactTitle">In 60 Sekunden prüfen, ob es für Ihr Fahrgeschäft passt</h2>
+              <h2 data-i18n="contactTitle">In 60 Sekunden Vor-Ort Termin für Ihr Fahrgeschäft anfragen</h2>
               <p class="muted" data-i18n="contactText">
-                Kurzes Formular ausfüllen - wir melden uns mit einer klaren Empfehlung für Ihr Setup.
+                Tragen Sie Ihren nächsten Standort ein - wir prüfen, ob ein Besuch vor Ort sinnvoll und möglich ist.
               </p>
             </div>
 
@@ -96,6 +96,31 @@
                   </select>
                 </div>
 
+                <div class="form-row">
+                  <label for="next_location" data-i18n="labelNextLocation">Nächster Standort / Volksfest / Event</label>
+                  <input id="next_location" name="next_location" type="text" required />
+                </div>
+
+                <div class="form-row">
+                  <label for="period" data-i18n="labelPeriod">Zeitraum / Datum</label>
+                  <input id="period" name="period" type="text" placeholder="z. B. 12.-15. Mai 2026" required />
+                </div>
+
+                <div class="form-row full">
+                  <label for="city" data-i18n="labelCity">Stadt</label>
+                  <input id="city" name="city" type="text" required />
+                </div>
+
+                <div class="form-row full">
+                  <label for="sales_interest" data-i18n="labelSalesInterest">Verkaufsinteresse</label>
+                  <select id="sales_interest" name="sales_interest">
+                    <option value="" data-i18n="salesInterestUnknown">weiß ich noch nicht</option>
+                    <option value="automat" data-i18n="salesInterestAutomat">Automat</option>
+                    <option value="kasse" data-i18n="salesInterestKasse">Kasse</option>
+                    <option value="qr" data-i18n="salesInterestQr">QR</option>
+                  </select>
+                </div>
+
                 <div class="form-row full">
                   <label for="message" data-i18n="labelMessage">Nachricht</label>
                   <textarea id="message" name="message"></textarea>
@@ -112,10 +137,14 @@
               </div>
 
               <div class="form-actions" style="margin-top: 1rem">
-                <button type="submit" class="btn primary" data-i18n="formPrimary">Kostenlose Beratung anfragen</button>
+                <button type="submit" class="btn primary" data-i18n="formPrimary">Vor-Ort Termin anfragen</button>
                 <button type="button" class="btn secondary dark" data-callback data-i18n="formSecondary">Rückruf anfordern</button>
               </div>
 
+              <p class="note" data-i18n="contactTrustNote">
+                Kostenlos und unverbindlich - wir melden uns mit einer klaren Einschätzung, ob ein Vor-Ort Termin für Ihr
+                Fahrgeschäft sinnvoll ist.
+              </p>
               <p class="note" id="utm-note"></p>
               <p class="form-status" id="form-status" aria-live="polite"></p>
             </form>
@@ -128,12 +157,15 @@
               <div data-i18n="contactInfo2">E-Mail: kontakt@liftpictures.de</div>
               <div data-i18n="contactInfo3">Öffnungszeiten: Mo-Fr 08:00-18:00</div>
               <div data-i18n="contactInfo4">Service auf Events nach Absprache</div>
+              <div data-i18n="contactInfo5">Vor-Ort Besuche nach Absprache</div>
+              <div data-i18n="contactInfo6">Auch an Veranstaltungsorten und Volksfesten möglich</div>
             </div>
 
             <div class="pdf-request-card" id="pdf-request">
-              <h4 data-i18n="pdfRequestTitle">PDF per E-Mail erhalten</h4>
+              <h4 data-i18n="pdfRequestTitle">Infomaterial vorab erhalten</h4>
               <p class="note pdf-request-note" data-i18n="pdfRequestText">
-                Tragen Sie E-Mail, Name und Fahrgeschäft ein. Wir senden Ihnen das Infomaterial direkt zu.
+                Sie möchten erst Unterlagen sehen? Tragen Sie E-Mail, Name und Fahrgeschäft ein - wir senden Ihnen das passende
+                Infomaterial zu.
               </p>
               <form id="pdf-form" class="pdf-form" novalidate>
                 <div class="form-row">
