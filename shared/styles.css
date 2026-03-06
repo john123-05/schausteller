@@ -553,21 +553,6 @@ p {
   margin-top: 0.34rem;
 }
 
-.memory-note-brand {
-  margin-top: 0.74rem;
-  display: block;
-  width: 100%;
-  max-width: 440px;
-}
-
-.memory-note-brand img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 1px solid rgba(28, 32, 38, 0.1);
-}
-
 .image-line {
   display: flex;
   gap: 0.65rem;
