@@ -400,7 +400,7 @@ p {
 }
 
 .on-site-why {
-  padding-top: 2.6rem;
+  padding-top: 0;
   padding-bottom: 2.1rem;
 }
 
@@ -423,6 +423,7 @@ p {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   background: #121519;
+  position: relative;
 }
 
 .on-site-why-video video {
@@ -518,7 +519,7 @@ p {
 }
 
 .memory-note-section {
-  padding: 1.25rem 0 0.35rem;
+  padding: 2rem 0;
 }
 
 .memory-note {
@@ -553,28 +554,18 @@ p {
 }
 
 .memory-note-brand {
-  margin-top: 0.68rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.44rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #fff;
-  padding: 0.24rem 0.52rem 0.24rem 0.24rem;
+  margin-top: 0.74rem;
+  display: block;
+  width: 100%;
+  max-width: 440px;
 }
 
 .memory-note-brand img {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
   object-fit: cover;
   border: 1px solid rgba(28, 32, 38, 0.1);
-}
-
-.memory-note-brand span {
-  font-size: 0.84rem;
-  font-weight: 800;
-  color: var(--ink);
 }
 
 .image-line {
