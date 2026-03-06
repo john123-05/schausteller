@@ -124,8 +124,10 @@ const copy = {
     formSecondary: "Rückruf anfordern",
     contactTrustNote:
       "Kostenlos und unverbindlich - wir melden uns mit einer klaren Einschätzung, ob ein Vor-Ort Termin für Ihr Fahrgeschäft sinnvoll ist.",
-    formSuccess:
-      "Danke. Anfrage erfasst (Demo). Wir melden uns mit einer Einschätzung zum möglichen Vor-Ort Termin.",
+    formSuccess: "Danke. Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns zeitnah.",
+    formCallbackSuccess: "Danke. Ihr Rückrufwunsch wurde erfolgreich gesendet.",
+    formSending: "Anfrage wird gesendet...",
+    formError: "Senden fehlgeschlagen. Bitte erneut versuchen oder direkt anrufen.",
     contactInfoTitle: "Direktkontakt",
     contactInfo1: "Telefon: +49 0000 000000",
     contactInfo2: "E-Mail: kontakt@liftpictures.de",
@@ -170,6 +172,11 @@ const copy = {
     modalClose: "Schließen",
     modalTitlePrefix: "Galeriebild",
     utmHintPrefix: "Tracking erkannt:",
+    cookieTitle: "Cookies",
+    cookieText: "Wir verwenden nur notwendige Cookies für Sprache, Formularstatus und Funktionsfähigkeit.",
+    cookiePrivacyLink: "Datenschutz",
+    cookieEssential: "Nur notwendige",
+    cookieAccept: "Akzeptieren",
   },
   en: {
     navBenefits: "Benefits",
@@ -294,8 +301,10 @@ const copy = {
     formSecondary: "Request callback",
     contactTrustNote:
       "Free and non-binding - we will send a clear assessment if an on-site visit makes sense for your attraction.",
-    formSuccess:
-      "Thanks. Request captured (demo). We will return with an assessment for a possible on-site visit.",
+    formSuccess: "Thanks. Your request was sent successfully. We will contact you shortly.",
+    formCallbackSuccess: "Thanks. Your callback request was sent successfully.",
+    formSending: "Sending request...",
+    formError: "Sending failed. Please try again or call us directly.",
     contactInfoTitle: "Direct contact",
     contactInfo1: "Phone: +49 0000 000000",
     contactInfo2: "Email: kontakt@liftpictures.de",
@@ -339,6 +348,11 @@ const copy = {
     modalClose: "Close",
     modalTitlePrefix: "Gallery image",
     utmHintPrefix: "Tracking detected:",
+    cookieTitle: "Cookies",
+    cookieText: "We only use necessary cookies for language, form status, and core site functionality.",
+    cookiePrivacyLink: "Privacy",
+    cookieEssential: "Necessary only",
+    cookieAccept: "Accept",
   },
 };
 
@@ -625,27 +639,27 @@ const segmentData = {
     logos: [
       {
         label: { de: "Kamera", en: "Camera" },
-        src: "./assets/bilder/Logo-Axis-Communications-GmbH.jpg",
+        src: "/media/trust/axis.jpg",
       },
       {
         label: { de: "Kamera", en: "Camera" },
-        src: "./assets/bilder/images12.png",
+        src: "/media/trust/camera.png",
       },
       {
         label: { de: "Hosting", en: "Hosting" },
-        src: "./assets/bilder/amazon-web-services-aws-logo-11760037608kihongewng.webp",
+        src: "/media/trust/aws.webp",
       },
       {
         label: { de: "Bargeld", en: "Cash" },
-        src: "./assets/bilder/Untitled design (2).png",
+        src: "/media/trust/cash.png",
       },
       {
         label: { de: "Online Payments", en: "Online Payments" },
-        src: "./assets/bilder/Stripe_Logo,_revised_2016.svg.png",
+        src: "/media/trust/stripe.png",
       },
       {
         label: { de: "Zahlungsoptionen", en: "Payment Options" },
-        src: ["./assets/bilder/images.png", "./assets/bilder/Payments_AppleGoogle.webp"],
+        src: ["/media/trust/payment-icons.png", "/media/trust/apple-google.webp"],
       },
     ],
   },
@@ -660,12 +674,17 @@ const state = {
   currentGalleryIndex: 0,
 };
 
+const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/s42huvg34dwic33clxjzny5no7s8isl4";
+
 const refs = {
   heroVideo: document.getElementById("hero-video"),
   onsiteVideo: document.getElementById("onsite-video"),
   onsiteVideoStartSound: document.getElementById("onsite-video-start-sound"),
   onsiteVideoToggle: document.getElementById("onsite-video-toggle"),
   onsiteAudioToggle: document.getElementById("onsite-audio-toggle"),
+  cookieBanner: document.getElementById("cookie-banner"),
+  cookieAccept: document.getElementById("cookie-accept"),
+  cookieEssential: document.getElementById("cookie-essential"),
   featureGrid: document.getElementById("feature-grid"),
   rideGrid: document.getElementById("ride-grid"),
   calcForm: document.getElementById("calc-form"),
@@ -735,27 +754,27 @@ function renderFeatures() {
       const bullets = item.bullets[state.lang].map((entry) => `<li>${entry}</li>`).join("");
       const backMedia =
         index === 0
-          ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="./assets/bilder/optimized/IMG_4580.jpg" alt="${
+          ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="/media/features/fast-setup.jpg" alt="${
               state.lang === "de" ? "Schneller Auf- und Abbau" : "Fast setup and teardown"
             }" loading="lazy" /></div>`
           : index === 1
-            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/zf2.jpg" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image" src="/media/features/transport.jpg" alt="${
                 state.lang === "de" ? "Sicherer Transport" : "Safe transport"
               }" loading="lazy" /></div>`
           : index === 2
-            ? `<div class="flip-back-media"><img class="flip-back-image image-zoom-vandal" src="./assets/bilder/optimized/Product_Reshoot___platziere_diese_metallbox_auf_einer_kirmes_vor_einer_wilden_maus_achterbahn_bei_na (1).jpg" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image image-zoom-vandal" src="/media/features/vandal-protection.jpg" alt="${
                 state.lang === "de" ? "Vandalismus-Schutz" : "Vandal protection"
               }" loading="lazy" /></div>`
           : index === 3
-            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/optimized/Product_Reshoot___edit_the_image__so_that_it_is_in_rains_hard.jpg" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image" src="/media/features/weatherproof.jpg" alt="${
                 state.lang === "de" ? "Wetterfest und zuverlässig" : "Weatherproof and reliable"
               }" loading="lazy" /></div>`
           : index === 4
-            ? `<div class="flip-back-media"><img class="flip-back-image" src="./assets/bilder/optimized/Product_Reshoot___can_you_place_this_camera_system_into_a_box_inside_of_a_trailer (1).jpg" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image" src="/media/features/trailer-box.jpg" alt="${
                 state.lang === "de" ? "Service und Support" : "Service and support"
               }" loading="lazy" /></div>`
           : index === 5
-            ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="./assets/bilder/optimized/IMG_4595.jpg" alt="${
+            ? `<div class="flip-back-media"><img class="flip-back-image image-up" src="/media/features/integration.jpg" alt="${
                 state.lang === "de" ? "Einfach integrierbar" : "Easy integration"
               }" loading="lazy" /></div>`
           : `<div class="placeholder" style="min-height:94px;">${
@@ -835,11 +854,11 @@ function renderSales() {
   if (!refs.salesGrid || !refs.flowGrid) return;
   const content = getContent();
   const salesImages = [
-    "./assets/bilder/optimized/Expand___16_9.jpg",
-    "./assets/bilder/optimized/hergis2.jpg",
-    "./assets/bilder/optimized/image.jpg",
+    "/media/sales/self-service.jpg",
+    "/media/sales/cashdesk.jpg",
+    "/media/sales/qr-online.jpg",
   ];
-  const salesFallbackImage = "./assets/bilder/optimized/IMG_4580.jpg";
+  const salesFallbackImage = "/media/features/fast-setup.jpg";
   refs.salesGrid.innerHTML = content.sales
     .map((item, index) => {
       const points = item.points[state.lang].map((point) => `<li>${point}</li>`).join("");
@@ -955,17 +974,96 @@ function captureUtm() {
   }
 }
 
+function setLeadFormPending(pending) {
+  if (!refs.contactForm) return;
+  refs.contactForm.querySelectorAll("button").forEach((button) => {
+    button.disabled = pending;
+  });
+}
+
+async function postLeadToWebhook(payload) {
+  const body = JSON.stringify(payload);
+  try {
+    const response = await fetch(MAKE_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return;
+  } catch (error) {
+    // Fallback for webhook endpoints that reject CORS preflight in browser context.
+    await fetch(MAKE_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+      body,
+    });
+  }
+}
+
+function buildLeadPayload(actionType) {
+  if (!refs.contactForm) return null;
+  const formData = new FormData(refs.contactForm);
+  const utmRaw = String(formData.get("utm_data") || "{}");
+  let utm = {};
+  try {
+    utm = JSON.parse(utmRaw);
+  } catch {
+    utm = {};
+  }
+
+  return {
+    action_type: actionType,
+    submitted_at: new Date().toISOString(),
+    page_url: window.location.href,
+    language: state.lang,
+    name: String(formData.get("name") || "").trim(),
+    company: String(formData.get("company") || "").trim(),
+    phone: String(formData.get("phone") || "").trim(),
+    email: String(formData.get("email") || "").trim(),
+    ride: String(formData.get("ride") || "").trim(),
+    next_location: String(formData.get("next_location") || "").trim(),
+    period: String(formData.get("period") || "").trim(),
+    city: String(formData.get("city") || "").trim(),
+    sales_interest: String(formData.get("sales_interest") || "").trim(),
+    message: String(formData.get("message") || "").trim(),
+    consent: Boolean(formData.get("consent")),
+    utm,
+  };
+}
+
+async function submitLead(actionType) {
+  if (!refs.contactForm || !refs.formStatus) return;
+  if (!refs.contactForm.reportValidity()) return;
+
+  refs.formStatus.textContent = t("formSending");
+  setLeadFormPending(true);
+
+  try {
+    const payload = buildLeadPayload(actionType);
+    await postLeadToWebhook(payload);
+    refs.formStatus.textContent = actionType === "callback" ? t("formCallbackSuccess") : t("formSuccess");
+    refs.contactForm.reset();
+    captureUtm();
+  } catch {
+    refs.formStatus.textContent = t("formError");
+  } finally {
+    setLeadFormPending(false);
+  }
+}
+
 function bindForm() {
   if (!refs.contactForm) return;
-  refs.contactForm.addEventListener("submit", (event) => {
+  refs.contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (refs.formStatus) refs.formStatus.textContent = t("formSuccess");
+    await submitLead("onsite");
   });
 
   const callbackButton = refs.contactForm.querySelector("[data-callback]");
   if (!callbackButton) return;
-  callbackButton.addEventListener("click", () => {
-    if (refs.formStatus) refs.formStatus.textContent = t("formSuccess");
+  callbackButton.addEventListener("click", async () => {
+    await submitLead("callback");
   });
 }
 
@@ -1016,6 +1114,27 @@ function bindCallWidget() {
       localStorage.setItem("lp_call_widget_hidden", "1");
     });
   }
+}
+
+function bindCookieBanner() {
+  if (!refs.cookieBanner) return;
+  const stored = localStorage.getItem("lp_cookie_consent");
+  if (stored) {
+    refs.cookieBanner.hidden = true;
+    return;
+  }
+
+  refs.cookieBanner.hidden = false;
+
+  refs.cookieAccept?.addEventListener("click", () => {
+    localStorage.setItem("lp_cookie_consent", "all");
+    refs.cookieBanner.hidden = true;
+  });
+
+  refs.cookieEssential?.addEventListener("click", () => {
+    localStorage.setItem("lp_cookie_consent", "essential");
+    refs.cookieBanner.hidden = true;
+  });
 }
 
 function setMenuOpen(isOpen) {
@@ -1160,6 +1279,7 @@ function init() {
   initHeroVideo();
   bindOnsiteVideo();
   bindLanguageSwitcher();
+  bindCookieBanner();
   bindCallWidget();
   bindMobileMenu();
   bindCalculator();
