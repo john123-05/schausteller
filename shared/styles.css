@@ -1374,36 +1374,6 @@ textarea {
   margin-top: 0.5rem;
 }
 
-.pdf-request-card {
-  margin-top: 1rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-}
-
-.pdf-request-card h4 {
-  margin: 0 0 0.45rem;
-  font-size: 1.05rem;
-}
-
-.pdf-request-note {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 0.7rem;
-}
-
-.pdf-form {
-  display: grid;
-  gap: 0.6rem;
-}
-
-.pdf-form .btn {
-  margin-top: 0.1rem;
-}
-
-.pdf-status {
-  color: #9cefb7;
-  min-height: 1.2rem;
-}
-
 .site-footer {
   background: #2d2d2d;
   color: rgba(255, 255, 255, 0.9);

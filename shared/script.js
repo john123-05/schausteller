@@ -49,7 +49,6 @@ const copy = {
     calcButton: "Jetzt berechnen",
     calcOnsiteHint:
       "Passt dieses Potenzial zu Ihrem Fahrgeschäft? Dann prüfen wir kostenlos vor Ort, wie sich das Setup bei Ihnen umsetzen lässt.",
-    calcPdf: "PDF Infomaterial",
     calcConsult: "Vor-Ort Analyse für mein Fahrgeschäft anfragen",
     calcResultLabel: "Ergebnis",
     salesEyebrow: "Verkaufssysteme",
@@ -137,11 +136,6 @@ const copy = {
     contactInfo4: "Service auf Events nach Absprache",
     contactInfo5: "Vor-Ort Besuche nach Absprache",
     contactInfo6: "Auch an Veranstaltungsorten und Volksfesten möglich",
-    pdfRequestTitle: "Infomaterial vorab erhalten",
-    pdfRequestText:
-      "Sie möchten erst Unterlagen sehen? Tragen Sie E-Mail, Name und Fahrgeschäft ein - wir senden Ihnen das passende Infomaterial zu.",
-    pdfRequestButton: "PDF per E-Mail senden",
-    pdfRequestSuccess: "Danke. Das PDF wird an Ihre E-Mail-Adresse gesendet.",
     callWidgetTab: "Anrufen",
     callWidgetEyebrow: "Direktkontakt",
     callWidgetRole: "Ansprechpartner",
@@ -230,7 +224,6 @@ const copy = {
     calcButton: "Calculate now",
     calcOnsiteHint:
       "If this potential fits your ride, we can check on site how the setup can be implemented in your operation.",
-    calcPdf: "PDF brochure",
     calcConsult: "Request on-site analysis for my ride",
     calcResultLabel: "Result",
     salesEyebrow: "Sales Systems",
@@ -316,10 +309,6 @@ const copy = {
     contactInfo4: "Event support on request",
     contactInfo5: "On-site visits by arrangement",
     contactInfo6: "Possible at fairgrounds and event locations",
-    pdfRequestTitle: "Get info material first",
-    pdfRequestText: "Prefer to review documents first? Enter email, name, and ride type and we will send suitable material.",
-    pdfRequestButton: "Send PDF by email",
-    pdfRequestSuccess: "Thanks. The PDF will be sent to your email address.",
     callWidgetTab: "Call",
     callWidgetEyebrow: "Direct contact",
     callWidgetRole: "Contact person",
@@ -706,8 +695,6 @@ const refs = {
   callWidgetClose: document.getElementById("call-widget-close"),
   contactForm: document.getElementById("lead-form"),
   formStatus: document.getElementById("form-status"),
-  pdfForm: document.getElementById("pdf-form"),
-  pdfStatus: document.getElementById("pdf-status"),
   utmField: document.getElementById("utm_data"),
   utmNote: document.getElementById("utm-note"),
   year: document.getElementById("year"),
@@ -1071,16 +1058,6 @@ function bindForm() {
   });
 }
 
-function bindPdfForm() {
-  if (!refs.pdfForm) return;
-  refs.pdfForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!refs.pdfStatus) return;
-    refs.pdfStatus.textContent = t("pdfRequestSuccess");
-    refs.pdfForm.reset();
-  });
-}
-
 function setCallWidgetCollapsed(collapsed, persist = true) {
   if (!refs.callWidget || !refs.callWidgetTab) return;
   refs.callWidget.classList.toggle("is-collapsed", collapsed);
@@ -1284,7 +1261,6 @@ function init() {
   bindMobileMenu();
   bindCalculator();
   bindForm();
-  bindPdfForm();
   rerender();
 }
 
